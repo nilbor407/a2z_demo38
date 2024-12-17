@@ -1,0 +1,27 @@
+<h1>Mobile List <a href="/">Add Mobile</a></h1>
+<table border="1">
+    <tr>
+        <th>SN</th>
+        <th>Mobile Name</th>
+        <th>Mobile Price</th>
+        <th>Mobile Qty</th>
+        <th>Total</th>
+    </tr>
+    <% 
+    sum = 0;
+    mobiles.map((row,i) => {
+        sum = sum + (row.mobile_qty*row.mobile_price);
+        %>
+        <tr>
+            <td><%- i+1 %></td>
+            <td><%-row.mobile_name%></td>
+            <td>&#8377; <%-row.mobile_price%></td>
+            <td><%-row.mobile_qty%> qty</td>
+            <td>&#8377; <%-row.mobile_qty*row.mobile_price%></td>
+        </tr>
+    <% }) %>
+    <tr>
+        <td colspan="4">Total</td>
+        <td >&#8377; <%-sum%></td>
+    </tr>
+</table>
